@@ -1,11 +1,14 @@
-var HTTP_PORT = process.env.PORT || 8080;
 var express = require("express");
-var app = express();
+var app = express(); 
+var path = require("path"); 
+var HTTP_PORT = process.env.PORT || 8080;
 app.listen(HTTP_PORT); 
 
 function onHttpStart(){
     console.log("Express http server listening on: " + HTTP_PORT);
 } 
+
+app.use(express.static('public')); 
 
 app.get("/", function(req, res){
     let resText = "<h2>Declaration</h2> <br><br>";
